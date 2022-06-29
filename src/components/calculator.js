@@ -1,34 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Calculator extends React.PureComponent {
+import './calculator.css';
+import CalcButton from './CalcButton';
+
+import calculate from '../logic/calculate';
+
+// eslint-disable-next-line react/prefer-stateless-function
+class Calculator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      calculatorObj: {},
+    };
+    this.handleCalculate = this.handleCalculate.bind(this);
+  }
+
+  handleCalculate(calcObj, text) {
+    this.setState({ calculatorObj: calculate(calcObj, text) });
+  }
+
   render() {
+    const { calculatorObj } = this.state;
+
+    let display = 0;
+
+    if (Object.keys(calculatorObj).length === 0 || (calculatorObj.total === null
+      && calculatorObj.next === null
+      && calculatorObj.operation === null)) {
+      display = 0;
+    } else {
+      display = calculatorObj.next !== null ? calculatorObj.next : calculatorObj.total;
+    }
+
     return (
-      <div className="btn-container">
-        <button type="button" className="top">AC</button>
-        <button type="button" className="top">+/-</button>
-        <button type="button" className="top">%</button>
-        <button type="button" className="right-btn">/</button>
 
-        <button type="button" className="top">7</button>
-        <button type="button" className="top">8</button>
-        <button type="button" className="top">9</button>
-        <button type="button" className="right-btn">X</button>
+      <div className="Calculator">
+        <div className="Calculator-result">{display}</div>
 
-        <button type="button" className="top">4</button>
-        <button type="button" className="top">5</button>
-        <button type="button" className="top">6</button>
-        <button type="button" className="right-btn">-</button>
+        <CalcButton buttonName="AC" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="+/-" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="%" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="÷" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-        <button type="button" className="top">1</button>
-        <button type="button" className="top">2</button>
-        <button type="button" className="top">3</button>
-        <button type="button" className="right-btn">+</button>
+        <CalcButton buttonName="7" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="8" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="9" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="x" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-        <button type="button" className="top zero-btn">0</button>
-        <button type="button" className="top">.</button>
-        <button type="button" className="right-btn">=</button>
+        <CalcButton buttonName="4" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="5" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="6" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="-" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
+
+        <CalcButton buttonName="1" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="2" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="3" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="+" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
+
+        <CalcButton buttonName="0" onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="." onClick={this.handleCalculate} calcObj={calculatorObj} />
+        <CalcButton buttonName="=" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
+
       </div>
     );
   }
 }
+
 export default Calculator;
