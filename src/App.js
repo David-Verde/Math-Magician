@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from './header/header';
 import Calculator from './components/calculator';
