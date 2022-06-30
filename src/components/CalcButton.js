@@ -1,24 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class CalcButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    const { buttonName, onClick, calcObj } = this.props;
-    onClick(calcObj, buttonName);
-  }
-
-  render() {
-    const { classButton, buttonName } = this.props;
-    return (
-      <button type="button" className={classButton} onClick={this.handleClick}>{buttonName}</button>
-    );
-  }
+function CalcButton({
+  buttonName, onClick, calcObj, classButton,
+}) {
+  return (
+    <button type="button" className={classButton} onClick={() => onClick(calcObj, buttonName)}>{buttonName}</button>
+  );
 }
 
 CalcButton.defaultProps = {
