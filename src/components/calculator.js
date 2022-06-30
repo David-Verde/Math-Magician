@@ -1,69 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import './calculator.css';
 import CalcButton from './CalcButton';
 
 import calculate from '../logic/calculate';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Calculator extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      calculatorObj: {},
-    };
-    this.handleCalculate = this.handleCalculate.bind(this);
+function Calculator() {
+  const [calculatorObj, setCalculatorObj] = useState({});
+
+  const handleCalculate = (calcObj, text) => {
+    setCalculatorObj(calculate(calcObj, text));
+  };
+
+  let display = 0;
+
+  if (Object.keys(calculatorObj).length === 0 || (calculatorObj.total === null
+    && calculatorObj.next === null
+    && calculatorObj.operation === null)) {
+    display = 0;
+  } else {
+    display = calculatorObj.next !== null ? calculatorObj.next : calculatorObj.total;
   }
 
-  handleCalculate(calcObj, text) {
-    this.setState({ calculatorObj: calculate(calcObj, text) });
-  }
+  return (
 
-  render() {
-    const { calculatorObj } = this.state;
+    <div className="Calculator">
+      <div className="Calculator-result">{display}</div>
 
-    let display = 0;
+      <CalcButton buttonName="AC" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="+/-" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="%" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="÷" onClick={handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-    if (Object.keys(calculatorObj).length === 0 || (calculatorObj.total === null
-      && calculatorObj.next === null
-      && calculatorObj.operation === null)) {
-      display = 0;
-    } else {
-      display = calculatorObj.next !== null ? calculatorObj.next : calculatorObj.total;
-    }
+      <CalcButton buttonName="7" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="8" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="9" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="x" onClick={handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-    return (
+      <CalcButton buttonName="4" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="5" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="6" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="-" onClick={handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-      <div className="Calculator">
-        <div className="Calculator-result">{display}</div>
+      <CalcButton buttonName="1" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="2" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="3" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="+" onClick={handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-        <CalcButton buttonName="AC" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="+/-" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="%" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="÷" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
+      <CalcButton buttonName="0" onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="." onClick={handleCalculate} calcObj={calculatorObj} />
+      <CalcButton buttonName="=" onClick={handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
 
-        <CalcButton buttonName="7" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="8" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="9" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="x" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
-
-        <CalcButton buttonName="4" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="5" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="6" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="-" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
-
-        <CalcButton buttonName="1" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="2" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="3" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="+" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
-
-        <CalcButton buttonName="0" onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="." onClick={this.handleCalculate} calcObj={calculatorObj} />
-        <CalcButton buttonName="=" onClick={this.handleCalculate} calcObj={calculatorObj} classButton="orangeButton" />
-
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Calculator;
