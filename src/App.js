@@ -10,7 +10,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
-import Calculator from './components/calculator';
+import Calculator from './components/Calculator';
 import Quote from './pages/Quote';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Navbar />
         <Switch>
           <div className="container hasNavbar">
-            <Route path="/calculator">
+            <Route path="/Calculator">
               <Calculator />
             </Route>
             <Route path="/quote">

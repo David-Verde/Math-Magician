@@ -5,8 +5,8 @@ function isNumber(item) {
 }
 
 /**
- * Given a button name and a calculator data object, return an updated
- * calculator data object.
+ * Given a button name and a Calculator data object, return an updated
+ * Calculator data object.
  *
  * Calculator data object contains:
  *   total:s           the running total
