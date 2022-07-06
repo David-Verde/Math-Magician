@@ -1,0 +1,52 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.Calculator {
+  display: grid;
+  grid-template-areas: "x x x x" "a b c d" "e f g h" "i j k l" "m n o p" "q q s t";
+  grid-template-columns: 120px 120px 120px 120px;
+  grid-template-rows: 80px 80px 80px 80px 80px 80px;
+  width: fit-content;
+  margin: 8% auto;
+}
+
+.Calculator .Calculator-result {
+  background: rgb(113, 113, 126);
+  color: white;
+  grid-area: x;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.whiteButton,
+.orangeButton {
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.whiteButton {
+  background: whitesmoke;
+  border: 1px solid lightgray;
+}
+
+.orangeButton {
+  background: rgb(255, 167, 95);
+  border: 1px solid rgb(255, 123, 75);
+}
+
+.whiteButton:hover,
+.orangeButton:hover {
+  filter: invert();
+  font-weight: bold;
+}
+
+.Calculator button:nth-child(18) {
+  grid-area: q;
+}

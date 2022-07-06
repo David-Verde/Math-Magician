@@ -18,7 +18,39 @@
 
 ## Getting Started
 
-> You can download the source code and run it locally. The Live Demo is going to be available proximately.
+
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- Internet connection and browser
+- A text editor(preferably Visual Studio Code)
+- Browser
+- Modern Web Browser
+- NPM updated
+- Git
+
+### Setup
+
+git clone https://github.com/David-Verde/Math-Magician.git
+cd math-magicians/
+
+
+
+### Usage
+
+- Run `npm install` from the terminal
+- Run `npm start` from the terminal
+- A new browser will open automatically with application loaded
+
+### Run tests
+
+- N/A
+
+### Deployment
+
+- All the files necessary for deployment are in the /dist folder
 
 
 
