@@ -1,39 +1,22 @@
-* {
-  padding: 0;
+body {
+  background-image: url(./istockphoto-938141302-612x612.png);
+  background-repeat: no-repeat;
   margin: 0;
-  box-sizing: border-box;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.wrapper {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  gap: 1px;
-}
-
-.btn-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.result {
-  text-align: right;
-  padding: 25px 3px;
-  font-size: 25px;
-  border: 1px solid #000;
-}
-
-button {
-  padding: 25px 50px;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.zero-btn {
-  grid-column: span 2;
-}
-
-.right-btn {
-  background-color: orange;
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
 }
