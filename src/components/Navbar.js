@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav className="navBar">
       <div className="container">
-      <a href="https://github.com/David-Verde/Math-Magician">Math Magician</a>
+        <a href="https://github.com/David-Verde/Math-Magician">Math Magician</a>
         <ul>
           {links.map((link) => (
             <li key={link.id}>
