@@ -10,7 +10,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
-import Calculator from './components/Calculator.js';
+import Calculator from './components/Calculator';
 import Quote from './pages/Quote';
 
 function App() {
