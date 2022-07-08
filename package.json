@@ -39,6 +39,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": ".",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
